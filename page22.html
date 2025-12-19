@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Dorcey 🎉</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --primary: #7a6cff;
+  --secondary: #f9c6ff;
+  --accent: #ffddc1;
+  --gold: #c9a24d;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f9c6ff, #7a6cff, #ffddc1);
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Container */
+.container {
+  max-width: 650px;
+  width: 90%;
+  background: rgba(255,255,255,0.25);
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+  padding: 60px 50px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+  text-align: center;
+  animation: appear 1.5s ease;
+  color: #2c2c2c;
+}
+
+/* Text styles */
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.6rem;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  color: var(--primary);
+  margin-bottom: 30px;
+  font-size: 1.1rem;
+}
+
+.message {
+  line-height: 1.9;
+  margin-bottom: 22px;
+  font-size: 1.05rem;
+}
+
+.highlight {
+  color: var(--gold);
+  font-weight: 500;
+}
+
+.signature {
+  margin-top: 30px;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+/* Floating petals */
+.petal {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background: radial-gradient(circle, #fff, var(--accent));
+  border-radius: 50%;
+  animation: float 12s infinite ease-in-out;
+}
+
+.petal:nth-child(1) { left: 10%; animation-duration: 14s; }
+.petal:nth-child(2) { left: 30%; animation-duration: 10s; }
+.petal:nth-child(3) { left: 50%; animation-duration: 16s; }
+.petal:nth-child(4) { left: 70%; animation-duration: 12s; }
+.petal:nth-child(5) { left: 85%; animation-duration: 18s; }
+
+@keyframes float {
+  0% { bottom: -20px; opacity: 0; transform: scale(0.5);}
+  30% { opacity: 0.7; transform: scale(1);}
+  100% { bottom: 110%; opacity: 0; transform: scale(0.5);}
+}
+
+/* Confetti */
+.confetti {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  opacity: 0.8;
+  top: 0;
+  animation: confetti-fall linear infinite;
+}
+
+@keyframes confetti-fall {
+  0% { transform: translateY(-10px) rotate(0deg); opacity:1;}
+  100% { transform: translateY(110vh) rotate(360deg); opacity:0;}
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Floating petals -->
+<div class="petal"></div>
+<div class="petal"></div>
+<div class="petal"></div>
+<div class="petal"></div>
+<div class="petal"></div>
+
+<!-- Confetti particles -->
+<script>
+for(let i=0; i<50; i++){
+  let c = document.createElement('div');
+  c.className = 'confetti';
+  c.style.left = Math.random() * 100 + 'vw';
+  c.style.backgroundColor = `hsl(${Math.random()*360}, 80%, 70%)`;
+  c.style.animationDuration = 3 + Math.random()*5 + 's';
+  c.style.animationDelay = Math.random()*5 + 's';
+  document.body.appendChild(c);
+}
+</script>
+
+<!-- Background music -->
+<audio id="bgMusic" autoplay loop>
+  <source src="birthday-music.mp3" type="audio/mpeg">
+</audio>
+
+<div class="container">
+  <h1>Happy Birthday, Dorcey 🎉</h1>
+  <div class="subtitle">Celebrating you today</div>
+
+  <p class="message">
+    Birthdays are a wonderful reminder to celebrate people
+    who bring <span class="highlight">positivity, warmth, and inspiration</span> wherever they go.
+  </p>
+
+  <p class="message">
+    It’s a pleasure having you on the team —
+    your calm nature, dedication, and attention to detail make a real difference.
+  </p>
+
+  <p class="message">
+    Wishing you a year filled with growth, happiness, and countless memorable moments.
+  </p>
+
+  <div class="signature">
+    Warm wishes 🌸<br>
+    — Team Alpha
+  </div>
+</div>
+
+<script>
+const music = document.getElementById("bgMusic");
+music.volume = 0.4;
+</script>
+
+</body>
+</html>
